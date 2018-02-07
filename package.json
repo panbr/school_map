@@ -1,0 +1,22 @@
+{
+  "name": "school_map",
+  "version": "1.0.0",
+  "description": "primary school map",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "spider",
+    "python",
+    "sqlite"
+  ],
+  "author": "panbr",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "sqlite3": "^3.1.13"
+  }
+}
