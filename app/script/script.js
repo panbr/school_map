@@ -6,7 +6,7 @@ $(function() {
     var index = 0;
     var myGeo = new BMap.Geocoder();
 
-    $.get("/api/schoolList?pageIndex=0&pageNum=10", function(res){
+    $.get("/api/schoolList", function(res){
         console.log('res: ', res)
         let adds = [];
         if (res && res.data.length) {
@@ -14,9 +14,12 @@ $(function() {
                 adds.push(new BMap.Point(res.data[i].position.split(',')[0],res.data[i].position.split(',')[1]))
             }
         }
+
         for(var i = 0; i<adds.length; i++){
-            var marker = new BMap.Marker(adds[i]);
+            let marker = new BMap.Marker(adds[i]);
             map.addOverlay(marker);
+            marker.setLabel(new BMap.Label(res.data[i].name, {offset:new BMap.Size(20,-10)}));
         }
     })
+
 })
