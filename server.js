@@ -7,6 +7,7 @@
 var express = require('express');
 var logger = require('morgan');
 var path = require('path');
+var bodyParser = require('body-parser');
 
 var routes = require('./routes');
 var api = require('./routes/api');
@@ -23,6 +24,7 @@ var db = new sqlite3.Database(__dirname+'/db/school.db');
 const PORT = process.env.PORT || 3000;
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'app')));
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(function(req, res, next) {
     req.db = db;
@@ -31,10 +33,11 @@ app.use(function(req, res, next) {
 
 /// ROUTE
 app.get('/', routes.index)
+app.get('/map', routes.map)
 
 /// API
 app.get('/api/schoolList', api.schoolList)
-
+app.post('/api/application', urlencodedParser, api.application)
 
 /// Start Server
 app.listen(PORT, function(req, res) {

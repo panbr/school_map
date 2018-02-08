@@ -6,7 +6,7 @@ $(function() {
     var index = 0;
     var myGeo = new BMap.Geocoder();
 
-    $.get("/api/schoolList", function(res){
+    $.get("/api/schoolList?pageIndex=0&pageNum=10", function(res){
         console.log('res: ', res)
         let adds = [];
         if (res && res.data.length) {

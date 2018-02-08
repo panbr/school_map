@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <title>广州小学分布</title>
-    <style type="text/css">
-		body, html{width: 100%;padding:0;margin:0;font-family:"微软雅黑";}
-		#l-map{height:600px;width:100%;}
-		#r-result{width:100%; font-size:14px;line-height:20px;}
-		header {text-align: center;}
-	</style>
-	<script type="text/javascript" src="script/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=lCaiTvpNEnMzEVkP0GFO2jladv0EpOfU"></script>
+	<title>闰土</title>
+	<script type="text/javascript" src="lib/jquery-1.11.3.min.js"></script>
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<header>
-		<h3>广州市小学分布图</h3>
-	</header>
-	<div id="l-map"></div>
-	<div id="r-result">
-		<div id="result"></div>
-	</div>
+	<form role="form" id="contact_form" novalidate style="width:300px;margin:50px auto;">
+		<div class="form-group">
+			<input type="text" class="form-control" id="contact_name" placeholder="姓名" name="name">
+		</div>
+		<div class="form-group">
+			<select class="form-control" name="grade">
+				<option value="">选择年级</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<input type="tel" class="form-control" id="contact_email" placeholder="手机号码" name="phone">
+		</div>
+		<div class="form-group">
+			<textarea class="form-control" rows="4" placeholder="您的留言" id="contact_message" name="message"></textarea>
+		</div>
+		<button id="apply_submit" data-loading-text="•••" class="btn btn-lg btn-block btn-info">提交</button>
+	</form>
 
-<script type="text/javascript" src="script/script.js"></script>
+<script type="text/javascript" src="script/index.js"></script>
 </body>
 </html>
