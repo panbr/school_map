@@ -1,11 +1,19 @@
-var config = require('../config/config.js')
+/**
+ * 路由管理
+ */
+var express = require('express');
+var url = require('./url');
+var api = require('./api');
 
-// 首页
-exports.index = function(req, res){
-    res.sendFile(config.APP_PATH + '/index.html');
-};
+var router = express.Router();
 
-// 学校分布地图
-exports.map = function(req, res){
-    res.sendFile(config.APP_PATH + '/map.html');
-};
+/// ROUTE
+router.get('/', url.index)
+router.get('/map', url.map)
+
+/// API
+router.get('/api/schoolList', api.schoolList)
+router.post('/api/application', api.application)
+
+
+module.exports = router;
