@@ -13,3 +13,8 @@ exports.index = function(req, res){
 exports.map = function(req, res){
     res.sendFile(config.APP_PATH + '/map.html');
 };
+
+// 查看申请表
+exports.applyList = function(req, res) {
+    res.sendFile(config.APP_PATH + '/applyList.html')
+}

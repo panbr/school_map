@@ -10,10 +10,12 @@ var router = express.Router();
 /// ROUTE
 router.get('/', url.index)
 router.get('/map', url.map)
+router.get('/applyList', url.applyList)
 
 /// API
 router.get('/api/schoolList', api.schoolList)
 router.post('/api/application', api.application)
+router.get('/api/applyList', api.applyList)
 
 
 module.exports = router;

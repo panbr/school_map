@@ -76,3 +76,33 @@ exports.application = function(req, res) {
         })
     })
 }
+
+// 查询申请表
+exports.applyList = function(req, res) {
+    let SQL = '';
+    if(req.query.pageNum) {
+        const pageNum = req.query.pageNum || 10;
+        const pageIndex = req.query.pageIndex || 0;
+        SQL = `SELECT * FROM application LIMIT ${pageNum} OFFSET ${pageIndex}`;
+    } else {
+        SQL = 'SELECT * FROM application';
+    }
+    req.db.serialize(function() {
+        req.db.all(SQL, function(err, rows) {
+            if (err) {
+                console.error(err);
+                res.status(500).send({
+                    status: 500,
+                    message: 'Field',
+                    data: err.toString(),
+                })
+            } else {
+                res.status(200).send({
+                    status: 200,
+                    message: 'Success',
+                    data: rows,
+                })
+            }
+        })
+    })
+}
